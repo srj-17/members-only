@@ -4,9 +4,23 @@
     <body>
         <%- include("partials/errors"); %>
         <% if (authenticated) { %>
+        <a href="/message/create">Create</a>
         <form method="post" action="/log-out">
             <button type="submit">Log out</button>
         </form>
+        <% } else { %>
+            <a href="/log-in">Log In</a>
+        <% } %> 
+
+        <% for (message of messages) { %>
+            <li> 
+                <%= message.message %> 
+                <% if (authenticated) { %>
+                    - <%= message.username %> 
+                <% } else { %>
+                    - anonymous 
+                <% } %>
+            </li>
         <% } %>
     </body>
 </html>

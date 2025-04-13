@@ -1,0 +1,14 @@
+<html>
+    <%- include("partials/head", {title: title}); %>
+    <body>
+        <%- include("partials/errors"); %>
+        <form class="create-message-form" method="post" action="/message/create">
+            <div class="create-message-input">
+                <label for="message">Message: </label>
+                <input type="text" name="message" required placeholder="Never gonna give you up!" />
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </body>
+</html>
+

@@ -6,7 +6,9 @@ async function getUsers() {
 }
 
 async function getMessages() {
-  const { rows } = await pool.query("SELECT * FROM messages");
+  const { rows } = await pool.query(
+    "SELECT * FROM messages INNER JOIN users ON messages.user_id = users.id",
+  );
   return rows;
 }
 
@@ -32,9 +34,18 @@ async function addUser(
   );
 }
 
+// message
+async function addMessage(userId, message) {
+  await pool.query("INSERT INTO messages (message, user_id) VALUES ($1, $2)", [
+    message,
+    userId,
+  ]);
+}
+
 module.exports = {
   getUsers,
   getMessages,
   getUserByName,
   addUser,
+  addMessage,
 };

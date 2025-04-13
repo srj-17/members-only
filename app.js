@@ -47,12 +47,14 @@ const indexRouter = require("./routes/indexRouter");
 const signupRouter = require("./routes/signupRouter");
 const loginRouter = require("./routes/loginRouter");
 const logoutRouter = require("./routes/logoutRouter");
+const messageRouter = require("./routes/messageRouter");
 
 // use routes
 app.use("/", indexRouter);
 app.use("/sign-up", signupRouter);
 app.use("/log-in", loginRouter);
 app.use("/log-out", logoutRouter);
+app.use("/message", messageRouter);
 
 app.use((err, req, res, next) => {
   console.error(err);
