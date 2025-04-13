@@ -36,10 +36,10 @@ async function addUser(
 
 // message
 async function addMessage(userId, message) {
-  await pool.query("INSERT INTO messages (message, user_id) VALUES ($1, $2)", [
-    message,
-    userId,
-  ]);
+  await pool.query(
+    "INSERT INTO messages (message, user_id, timestamp) VALUES ($1, $2, $3)",
+    [message, userId, new Date()],
+  );
 }
 
 module.exports = {

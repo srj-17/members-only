@@ -9,14 +9,15 @@
             <button type="submit">Log out</button>
         </form>
         <% } else { %>
-            <a href="/log-in">Log In</a>
+            <a href="/log-in">Log In</a> Or
+            <a href="/sign-up">Sign Up</a>
         <% } %> 
 
         <% for (message of messages) { %>
             <li> 
                 <%= message.message %> 
-                <% if (authenticated) { %>
-                    - <%= message.username %> 
+                <% if (authenticated && specialMember) { %>
+                    - <%= message.username %> [ <%= message.timestamp.toLocaleDateString() %> ]
                 <% } else { %>
                     - anonymous 
                 <% } %>
