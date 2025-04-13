@@ -1,0 +1,21 @@
+<html>
+    <%- include("partials/head", {title: title}); %>
+    <body>
+        <%- include("partials/errors"); %>
+        <form class="log-in-form" method="post" action="/log-in">
+            <div class="username_container">
+                <label for="username">Username: </label>
+                <input type="text" name="username" placeholder="jd57" required />
+            </div>
+            <div class="password_container">
+                <label for="password">Password: </label>
+                <input type="password" name="password" required placeholder="Enter password" />
+            </div>
+            <div class="confirm_password_container">
+                <label for="confirm_password">Confirm Password: </label>
+                <input type="password" name="confirm_password" required placeholder="Re-enter password" />
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </body>
+</html>
