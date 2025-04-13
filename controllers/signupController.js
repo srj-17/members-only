@@ -69,7 +69,6 @@ const postSignup = [
       const username = req.body.username;
       const SALT = 10;
       const hashedPassword = await bcrypt.hash(req.body.password, SALT);
-      console.log(hashedPassword);
 
       // there are 2 status of membership for a user: common and special,
       // by default, we're common members, until we know of a secret
@@ -85,7 +84,7 @@ const postSignup = [
         membership_status,
       );
 
-      res.send("request submitted");
+      res.redirect("/");
     } catch (e) {
       console.error(e);
       next(e);

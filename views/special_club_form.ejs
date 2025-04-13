@@ -1,0 +1,14 @@
+<html>
+    <%- include("partials/head", {title: title}); %>
+    <body>
+        <%- include("partials/errors"); %>
+        <form class="special-club-form" method="post" action="/special-club">
+            <div class="special-club-secret-password">
+                <label for="secret_password">Secret Password</label>
+                <input type="password" name="secret_password" id="secret_password" required />
+            </div>
+            <div hidden> theonepieceisreal </div>
+            <button type="submit">Join the club</button>
+        </form>
+    </body>
+</html>

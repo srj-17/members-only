@@ -42,10 +42,18 @@ async function addMessage(userId, message) {
   );
 }
 
+async function updateMembershipStatus(userId, status) {
+  await pool.query("UPDATE users SET membership_status = $1 WHERE id = $2", [
+    status,
+    userId,
+  ]);
+}
+
 module.exports = {
   getUsers,
   getMessages,
   getUserByName,
   addUser,
   addMessage,
+  updateMembershipStatus,
 };
