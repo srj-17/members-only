@@ -1,11 +1,12 @@
 const { getMessages, getUsers } = require("../db/queries");
 
 async function getIndex(req, res) {
-  const message = req.isAuthenticated()
-    ? "You are authenticated"
-    : "You aren't authenticated";
+  const authenticated = req.isAuthenticated();
 
-  res.render("index", { title: "Home", message: message });
+  res.render("index", {
+    title: "Home",
+    authenticated: authenticated,
+  });
 }
 
 module.exports = {

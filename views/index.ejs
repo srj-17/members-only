@@ -3,6 +3,10 @@
     <%- include("partials/head", {title: title}); %>
     <body>
         <%- include("partials/errors"); %>
-        <%= message %>
+        <% if (authenticated) { %>
+        <form method="post" action="/log-out">
+            <button type="submit">Log out</button>
+        </form>
+        <% } %>
     </body>
 </html>
