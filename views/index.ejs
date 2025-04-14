@@ -6,6 +6,9 @@
         <% if (authenticated) { %>
         <a href="/message/create">Create</a>
         <a href="/special-club">Join the special club</a>. 
+        <% if (!admin) { %>
+            <a href="/admin">Admin Login</a>
+        <% } %>
         <form method="post" action="/log-out">
             <button type="submit">Log out</button>
         </form>

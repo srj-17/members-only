@@ -49,6 +49,11 @@ async function updateMembershipStatus(userId, status) {
   ]);
 }
 
+async function createAdmin(userId) {
+  console.log(userId);
+  await pool.query("UPDATE users SET admin = $1 WHERE id = $2", [true, userId]);
+}
+
 module.exports = {
   getUsers,
   getMessages,
@@ -56,4 +61,5 @@ module.exports = {
   addUser,
   addMessage,
   updateMembershipStatus,
+  createAdmin,
 };

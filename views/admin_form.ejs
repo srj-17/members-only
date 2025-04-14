@@ -1,0 +1,13 @@
+<html>
+    <%- include("partials/head", {title: title}); %>
+    <body>
+        <%- include("partials/errors"); %>
+        <form class="admin-password-form" method="post" action="/admin">
+            <div class="admin-password">
+                <label for="admin-password">Admin Password</label>
+                <input type="password" name="admin_password" id="admin_password" required />
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

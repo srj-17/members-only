@@ -3,6 +3,7 @@ const { getMessages, getUsers } = require("../db/queries");
 async function getIndex(req, res) {
   const authenticated = req.isAuthenticated();
   let specialMember = false;
+  const admin = req.user.admin;
   if (authenticated) {
     specialMember = req.user.membership_status === "special";
   }
@@ -13,6 +14,7 @@ async function getIndex(req, res) {
     authenticated: authenticated,
     specialMember: specialMember,
     messages: messages,
+    admin: admin,
   });
 }
 
