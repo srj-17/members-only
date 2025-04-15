@@ -1,20 +1,17 @@
 const passport = require("passport");
 
 function getLogin(req, res, next) {
-  res.render("login_form", { title: "Log in" });
+  const messages = req.session.messages;
+  res.render("login_form", { title: "Log in", messages: messages });
 }
 
 postLogin = passport.authenticate("local", {
   successRedirect: "/",
-  failureRedirect: "/login-failure",
+  failureRedirect: "/log-in",
+  failureMessage: "Wrong username or password!",
 });
-
-function getLoginFailure(req, res, next) {
-  res.send("login failure");
-}
 
 module.exports = {
   getLogin,
   postLogin,
-  getLoginFailure,
 };
