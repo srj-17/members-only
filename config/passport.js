@@ -15,7 +15,7 @@ async function verifyUser(username, password, done) {
       done(null, false);
     }
 
-    if (bcrypt.compare(password, user.password)) {
+    if (await bcrypt.compare(password, user.password)) {
       done(null, user);
     } else {
       done(null, false);
