@@ -1,4 +1,4 @@
-const { addMessage } = require("../db/queries");
+const { addMessage, deleteMessage } = require("../db/queries");
 
 function getCreateMessage(req, res, next) {
   res.render("create_message_form", { title: "Create message" });
@@ -11,7 +11,14 @@ async function postCreateMessage(req, res, next) {
   res.redirect("/");
 }
 
+async function postDeleteMessage(req, res, next) {
+  const { messageId } = req.params;
+  await deleteMessage(messageId);
+  res.redirect("/");
+}
+
 module.exports = {
   getCreateMessage,
   postCreateMessage,
+  postDeleteMessage,
 };

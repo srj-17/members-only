@@ -6,7 +6,6 @@ function getAdminForm(req, res, next) {
 
 async function postAdminForm(req, res, next) {
   const { admin_password } = req.body;
-  console.log(req.user);
   const { id: user_id } = req.user;
   if (admin_password === process.env.ADMIN_PASSWORD) {
     await createAdmin(user_id);

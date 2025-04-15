@@ -5,7 +5,9 @@
         <%- include("partials/errors"); %>
         <% if (authenticated) { %>
         <a href="/message/create">Create</a>
-        <a href="/special-club">Join the special club</a>. 
+        <% if (!specialMember) { %>
+            <a href="/special-club">Join the special club</a>. 
+        <% } %>
         <% if (!admin) { %>
             <a href="/admin">Admin Login</a>
         <% } %>
@@ -22,6 +24,11 @@
                 <%= message.message %> 
                 <% if (authenticated && specialMember) { %>
                     - <%= message.username %> [ <%= message.timestamp.toLocaleDateString() %> ]
+                    <% if (admin) {%>
+                    <form method="post" action="/message/delete/<%= message.message_id %>">
+                        <button type="submit">Delete Message</button>
+                    </form>
+                    <% } %>
                 <% } else { %>
                     - anonymous 
                 <% } %>
