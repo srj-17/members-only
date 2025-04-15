@@ -1,0 +1,7 @@
+<% if (locals.auth_messages) {%>
+    <ul class="auth_messages">
+        <% auth_messages.forEach(message => { %>
+            <li> <%= message %> </li>
+        <% }) %>
+    </ul>
+<% } %>
