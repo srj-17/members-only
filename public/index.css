@@ -12,7 +12,7 @@
 .message-container {
   display: flex;
   gap: 8px;
-  background: hsl(from var(--bg) h s 90);
+  background: var(--card-bg);
   padding: var(--std-padding);
   border-radius: 20px;
 }

@@ -1,34 +1,37 @@
 .container {
   display: grid;
-  place-content: center;
 }
 
-.signup-form-container {
+.create-message-form-container {
   background-color: var(--card-bg);
   display: grid;
-  place-items: center;
   padding: 20px;
   border-radius: 20px;
   gap: 10px;
 }
 
-.sign-up-form {
+.create-message-form {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .input-container,
 .button-container {
   display: grid;
-  place-items: center;
   gap: 5px;
 }
 
+.button-container {
+  place-items: start;
+}
+
 .input-container label {
-  font-size: 0.9rem;
+  padding: 2px;
+  font-weight: 600;
 }
 
 input {
-  padding: 2px 8px;
-  text-align: center;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 10px 20px;
 }

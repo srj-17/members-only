@@ -4,9 +4,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><%= title %></title>
         <%- include("partials/common_head") %>
+        <link rel="stylesheet" href="/special_club.css">
     </head>
     <body>
-    <header>
+        <header>
             <div class="brand">
                 <a href="/">Chitthi</a>
             </div>
@@ -20,15 +21,19 @@
         </header>
 
         <main>
-            <%- include("partials/errors"); %>
-            <form class="special-club-form" method="post" action="/special-club">
-                <div class="special-club-secret-password">
-                    <label for="secret_password">Secret Password</label>
-                    <input type="password" name="secret_password" id="secret_password" required />
+            <div class="container">
+                <div class="special-club-form-container">
+                    <%- include("partials/errors"); %>
+                    <form class="special-club-form" method="post" action="/special-club">
+                        <div class="input-container special-club-secret-password">
+                            <label for="secret_password">Secret Password</label>
+                            <input type="password" name="secret_password" id="secret_password" required />
+                        </div>
+                        <div hidden> theonepieceisreal </div>
+                        <div class="button-container"><button type="submit">Join the club</button></div>
+                    </form>
                 </div>
-                <div hidden> theonepieceisreal </div>
-                <button type="submit">Join the club</button>
-            </form>
+            </div>
         </main>
     </body>
 </html>

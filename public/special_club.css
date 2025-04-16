@@ -3,7 +3,7 @@
   place-content: center;
 }
 
-.signup-form-container {
+.special-club-form-container {
   background-color: var(--card-bg);
   display: grid;
   place-items: center;
@@ -12,7 +12,7 @@
   gap: 10px;
 }
 
-.sign-up-form {
+.special-club-form {
   display: grid;
   gap: 10px;
 }

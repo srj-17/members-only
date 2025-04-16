@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><%= title %></title>
         <%- include("partials/common_head") %>
+        <link rel="stylesheet" type="" href="/admin.css">
     </head>
     <body>
         <header>
@@ -20,14 +21,18 @@
         </header>
 
         <main>
-            <%- include("partials/errors"); %>
-            <form class="admin-password-form" method="post" action="/admin">
-                <div class="admin-password">
-                    <label for="admin-password">Admin Password</label>
-                    <input type="password" name="admin_password" id="admin_password" required />
+            <div class="container">
+                <div class="admin-form-container">
+                    <%- include("partials/errors"); %>
+                    <form class="admin-password-form" method="post" action="/admin">
+                        <div class="input-container admin-password">
+                            <label for="admin-password">Admin Password</label>
+                            <input type="password" name="admin_password" id="admin_password" required />
+                        </div>
+                        <div class="button-container"><button type="submit">Submit</button></div>
+                    </form>
                 </div>
-                <button type="submit">Submit</button>
-            </form>
+            </div>
         </main>
     </body>
 </html>

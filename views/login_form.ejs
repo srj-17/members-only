@@ -25,28 +25,31 @@
 
         <main>
             <%- include("partials/errors"); %>
-            <div class="login-form-container">
-                <div class="brand">
-                    Chitthi
+            <div class="container">
+                <div class="login-form-container">
+                    <div class="brand">
+                        Chitthi
+                    </div>
+                    <%- include("partials/auth_messages"); %>
+                    <form class="log-in-form" method="post" action="/log-in">
+                        <div class="input-container username_container">
+                            <label for="username">Username </label>
+                            <input type="text" name="username" placeholder="jd57" required />
+                        </div>
+                        <div class="input-container password_container">
+                            <label for="password">Password </label>
+                            <input type="password" name="password" required placeholder="Enter password" />
+                        </div>
+                        <div class="input-container confirm_password_container">
+                            <label for="confirm_password">Confirm Password </label>
+                            <input type="password" name="confirm_password" required placeholder="Re-enter password" />
+                        </div>
+                        <div class="button-container">
+                            <button type="submit">Log In</button>
+                        </div>
+                    </form>
+
                 </div>
-                <%- include("partials/auth_messages"); %>
-                <form class="log-in-form" method="post" action="/log-in">
-                    <div class="username_container">
-                        <label for="username">Username: </label>
-                        <input type="text" name="username" placeholder="jd57" required />
-                    </div>
-                    <div class="password_container">
-                        <label for="password">Password: </label>
-                        <input type="password" name="password" required placeholder="Enter password" />
-                    </div>
-                    <div class="confirm_password_container">
-                        <label for="confirm_password">Confirm Password: </label>
-                        <input type="password" name="confirm_password" required placeholder="Re-enter password" />
-                    </div>
-                    <div class="button-container">
-                        <button type="submit">Log In</button>
-                    </div>
-                </form>
 
             </div>
         </main>

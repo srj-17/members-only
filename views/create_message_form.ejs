@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><%= title %></title>
         <%- include("partials/common_head") %>
+        <link rel="stylesheet" href="/create_msg.css">
     </head>
     <body>
         <header>
@@ -20,14 +21,18 @@
         </header>
 
         <main>
-            <%- include("partials/errors"); %>
-            <form class="create-message-form" method="post" action="/message/create">
-                <div class="create-message-input">
-                    <label for="message">Message: </label>
-                    <input type="text" name="message" required placeholder="Never gonna give you up!" />
+            <div class="container">
+                <div class="create-message-form-container">
+                    <%- include("partials/errors"); %>
+                    <form class="create-message-form" method="post" action="/message/create">
+                        <div class="input-container create-message-input">
+                            <label for="message">Message </label>
+                            <input id="message" type="text" name="message" required placeholder="Never gonna give you up!" />
+                        </div>
+                        <div class="button-container"><button type="submit">Send</button></div>
+                    </form>
                 </div>
-                <button type="submit">Send</button>
-            </form>
+            </div>
         </main>
     </body>
 </html>

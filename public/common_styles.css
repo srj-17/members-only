@@ -13,6 +13,9 @@
   --primary: black;
   --secondary: black;
   --accent: white;
+
+  /* derived colors */
+  --card-bg: hsl(from var(--bg) h s 90);
 }
 
 /* all page styling */
