@@ -2,4 +2,8 @@ const { Pool } = require("pg");
 
 // create a pool with default settings
 // from .env
-module.exports = new Pool();
+module.exports = new Pool({
+  ssl: {
+    require: true,
+  },
+});
