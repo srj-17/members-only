@@ -25,7 +25,7 @@
                         </li>
                     <% } %>
                     <li>
-                        <form method="post" action="/log-out">
+                        <form class="button-container" method="post" action="/log-out">
                             <button type="submit">Log out</button>
                         </form>
                     </li>
@@ -72,7 +72,7 @@
                             </div>
                             <div class="message-controls">
                                 <% if (authenticated && admin) {%>
-                                    <div class="message-delete-btn-container">
+                                    <div class="button-container message-delete-btn-container">
                                         <form method="post" action="/message/delete/<%= message.message_id %>">
                                             <button type="submit">Delete Message</button>
                                         </form>

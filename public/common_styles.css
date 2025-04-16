@@ -8,14 +8,18 @@
   --std-padding: 20px;
 
   /* colors */
-  --text: black;
-  --bg: skyblue;
-  --primary: black;
-  --secondary: black;
-  --accent: white;
+  --text: #fff8e5;
+  --bg: #00a19d;
+  --primary: #ffb344;
+  --secondary: hsl(179, 100%, 26%);
+  --accent: #e05d5d;
 
   /* derived colors */
-  --card-bg: hsl(from var(--bg) h s 90);
+  --card-bg: hsl(from var(--primary) h s 63);
+
+  /* for inputs */
+  --positive-feedback: #acc572;
+  --negative-feedback: var(--accent);
 }
 
 /* all page styling */
@@ -35,7 +39,6 @@ body {
 /* header styling */
 header {
   display: flex;
-  background-color: skyblue;
 }
 
 .seperator {
@@ -61,10 +64,6 @@ nav ul.nav_links {
   gap: 20px;
 }
 
-a {
-  text-decoration: none;
-}
-
 /* responsiveness for header */
 @media (max-width: 500px) {
   header {
@@ -86,4 +85,54 @@ a {
 /* main styling */
 main {
   flex: 1;
+}
+
+/* individual elements styling */
+a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+button {
+  padding: 2px 8px;
+}
+
+input {
+  border: 2px solid var(--positive-feedback);
+  border-radius: 8px;
+}
+
+input:invalid {
+  border: 2px solid var(--negative-feedback);
+}
+
+.button-container button,
+.create-message-container a {
+  background: var(--text);
+  border: 2px solid var(--text);
+  border-radius: 8px;
+  transition: transform 0.2s;
+  padding: 2px 8px;
+  color: #222;
+}
+
+/* for transform to work for a, which is inline by default */
+.create-message-container a {
+  display: inline-block;
+  cursor: default;
+}
+
+.button-container button:hover,
+.create-message-container a:hover {
+  transform: scale(1.1);
+}
+
+.button-container button:active,
+.create-message-container a:active {
+  transform: scale(0.9);
+}
+
+/* for rest of the a's */
+a:active {
+  color: var(--accent);
 }

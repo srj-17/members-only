@@ -12,13 +12,15 @@
 .message-container {
   display: flex;
   gap: 8px;
-  background: var(--card-bg);
+  background: var(--secondary);
   padding: var(--std-padding);
   border-radius: 20px;
+  cursor: default;
 }
 
 .message {
   flex: 1;
+  color: var(--text);
 }
 
 .message-data {
@@ -26,4 +28,9 @@
   justify-items: end;
   align-content: start;
   gap: 10px;
+}
+
+.message-username {
+  color: hsl(from var(--primary) h s 60);
+  font-weight: bold;
 }

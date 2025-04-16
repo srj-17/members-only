@@ -31,7 +31,7 @@
 }
 
 input {
-  border: 2px solid var(--accent);
+  border: 2px solid var(--positive-feedback);
   border-radius: 10px;
   padding: 10px 20px;
 }
