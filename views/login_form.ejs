@@ -24,12 +24,12 @@
         </header>
 
         <main>
-            <%- include("partials/errors"); %>
             <div class="container">
                 <div class="login-form-container">
                     <div class="brand">
                         Chitthi
                     </div>
+                    <%- include("partials/errors"); %>
                     <%- include("partials/auth_messages"); %>
                     <form class="log-in-form" method="post" action="/log-in">
                         <div class="input-container username_container">

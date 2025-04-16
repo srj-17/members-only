@@ -14,14 +14,9 @@
             <nav>
                 <ul class="nav_links">
                 <% if (authenticated) { %>
-                    <li>
-                        <form method="post" action="/log-out">
-                            <button type="submit">Log out</button>
-                        </form>
-                    </li>
                     <% if (!specialMember) { %>
                         <li>
-                            <a href="/special-club">Join the special club</a>
+                            <a href="/special-club">Become Special</a>
                         </li> 
                     <% } %>
                     <% if (!admin) { %>
@@ -29,6 +24,11 @@
                             <a href="/admin">Admin Login</a>
                         </li>
                     <% } %>
+                    <li>
+                        <form method="post" action="/log-out">
+                            <button type="submit">Log out</button>
+                        </form>
+                    </li>
                 <% } else { %>
                     <li>
                         <a href="/log-in">Log In</a> 
