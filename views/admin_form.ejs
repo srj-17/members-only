@@ -1,13 +1,33 @@
 <html>
-    <%- include("partials/head", {title: title}); %>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title><%= title %></title>
+        <%- include("partials/common_head") %>
+    </head>
     <body>
-        <%- include("partials/errors"); %>
-        <form class="admin-password-form" method="post" action="/admin">
-            <div class="admin-password">
-                <label for="admin-password">Admin Password</label>
-                <input type="password" name="admin_password" id="admin_password" required />
+        <header>
+            <div class="brand">
+                <a href="/">Chitthi</a>
             </div>
-            <button type="submit">Submit</button>
-        </form>
+            <nav>
+                <ul class="nav_links">
+                    <li>
+                        <a href="/">Back to Home</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <%- include("partials/errors"); %>
+            <form class="admin-password-form" method="post" action="/admin">
+                <div class="admin-password">
+                    <label for="admin-password">Admin Password</label>
+                    <input type="password" name="admin_password" id="admin_password" required />
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </main>
     </body>
 </html>

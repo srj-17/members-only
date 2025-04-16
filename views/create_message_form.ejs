@@ -1,14 +1,34 @@
 <html>
-    <%- include("partials/head", {title: title}); %>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title><%= title %></title>
+        <%- include("partials/common_head") %>
+    </head>
     <body>
-        <%- include("partials/errors"); %>
-        <form class="create-message-form" method="post" action="/message/create">
-            <div class="create-message-input">
-                <label for="message">Message: </label>
-                <input type="text" name="message" required placeholder="Never gonna give you up!" />
+        <header>
+            <div class="brand">
+                <a href="/">Chitthi</a>
             </div>
-            <button type="submit">Send</button>
-        </form>
+            <nav>
+                <ul class="nav_links">
+                    <li>
+                        <a href="/">Back to Home</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <%- include("partials/errors"); %>
+            <form class="create-message-form" method="post" action="/message/create">
+                <div class="create-message-input">
+                    <label for="message">Message: </label>
+                    <input type="text" name="message" required placeholder="Never gonna give you up!" />
+                </div>
+                <button type="submit">Send</button>
+            </form>
+        </main>
     </body>
 </html>
 

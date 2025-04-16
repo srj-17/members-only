@@ -1,0 +1,68 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --std-padding: 20px;
+
+  /* colors */
+  --text: black;
+  --bg: skyblue;
+  --primary: black;
+  --secondary: black;
+  --accent: white;
+}
+
+/* all page styling */
+ul {
+  list-style-type: none;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: "Bricolage Grotesque", sans-serif;
+  display: flex;
+  padding: var(--std-padding);
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* header styling */
+header {
+  display: flex;
+  background-color: skyblue;
+}
+
+.seperator {
+  content: "";
+  height: 3px;
+  background-color: var(--accent);
+  padding: 0 var(--std-padding);
+}
+
+.brand {
+  font-family: "Metamorphous", serif;
+  font-size: 1.2rem;
+}
+
+nav {
+  flex: 1;
+  display: flex;
+  justify-content: end;
+}
+
+nav ul.nav_links {
+  display: flex;
+  gap: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* main styling */
+main {
+  flex: 1;
+}

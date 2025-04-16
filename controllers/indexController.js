@@ -9,8 +9,6 @@ async function getIndex(req, res) {
   }
   const messages = await getMessages();
 
-  console.log(messages);
-
   res.render("index", {
     title: "Home",
     authenticated: authenticated,

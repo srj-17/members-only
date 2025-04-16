@@ -1,37 +1,89 @@
 <html>
-    <%- include("partials/head", {title: title}); %>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title><%= title %></title>
+        <%- include("partials/common_head") %>
+        <link href="index.css" rel="stylesheet" />
+    </head>
     <body>
-        <%- include("partials/errors"); %>
-        <% if (authenticated) { %>
-        <a href="/message/create">Create</a>
-        <% if (!specialMember) { %>
-            <a href="/special-club">Join the special club</a>. 
-        <% } %>
-        <% if (!admin) { %>
-            <a href="/admin">Admin Login</a>
-        <% } %>
-        <form method="post" action="/log-out">
-            <button type="submit">Log out</button>
-        </form>
-        <% } else { %>
-            <a href="/log-in">Log In</a> Or
-            <a href="/sign-up">Sign Up</a>
-        <% } %> 
-
-        <% for (message of messages) { %>
-            <li> 
-                <%= message.message %> 
-                <% if (authenticated && specialMember) { %>
-                    - <%= message.username %> [ <%= message.timestamp.toLocaleDateString() %> ]
-                    <% if (admin) {%>
-                    <form method="post" action="/message/delete/<%= message.message_id %>">
-                        <button type="submit">Delete Message</button>
-                    </form>
+        <header>
+            <div class="brand">
+                <a href="/">Chitthi</a>
+            </div>
+            <nav>
+                <ul class="nav_links">
+                <% if (authenticated) { %>
+                    <li>
+                        <form method="post" action="/log-out">
+                            <button type="submit">Log out</button>
+                        </form>
+                    </li>
+                    <% if (!specialMember) { %>
+                        <li>
+                            <a href="/special-club">Join the special club</a>
+                        </li> 
+                    <% } %>
+                    <% if (!admin) { %>
+                        <li>
+                            <a href="/admin">Admin Login</a>
+                        </li>
                     <% } %>
                 <% } else { %>
-                    - anonymous 
+                    <li>
+                        <a href="/log-in">Log In</a> 
+                    </li>
+                <% } %> 
+                </ul>
+            </nav>
+        </header>
+        <div class="seperator"></div>
+        <main>
+            <%- include("partials/errors"); %>
+
+            <% if (authenticated) { %>
+                <div class="create-message-container">
+                    <a href="/message/create">Create new message</a>
+                </div>
+            <% } else { %>
+
+            <% } %>
+
+            <ul class="messages">
+                <% for (message of messages) { %>
+                    <li class="message-container"> 
+                        <div class="message">
+                            <%= message.message %> 
+                        </div>
+                        <div class="message-data">
+                            <div class="message-metadata">
+                                <% if (authenticated && specialMember) { %>
+                                <div class="message-username">
+                                    <%= message.username %> 
+                                    <span class="message-date">
+                                        [ <%= message.timestamp.toLocaleDateString() %> ]
+                                    </span>
+                                </div>
+                                <% } else { %>
+                                <div class="message-username">
+                                    - anonymous 
+                                </div>
+                                <% } %>
+                            </div>
+                            <div class="message-controls">
+                                <% if (authenticated && admin) {%>
+                                    <div class="message-delete-btn-container">
+                                        <form method="post" action="/message/delete/<%= message.message_id %>">
+                                            <button type="submit">Delete Message</button>
+                                        </form>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </li>
                 <% } %>
-            </li>
-        <% } %>
+            </ul>
+
+        </main>
     </body>
 </html>

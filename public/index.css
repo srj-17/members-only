@@ -1,0 +1,29 @@
+/* main styling */
+.create-message-container {
+  padding: 8px 0;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message-container {
+  display: flex;
+  gap: 8px;
+  background: hsl(from var(--bg) h s 90);
+  padding: var(--std-padding);
+  border-radius: 20px;
+}
+
+.message {
+  flex: 1;
+}
+
+.message-data {
+  display: grid;
+  justify-items: end;
+  align-content: start;
+  gap: 10px;
+}

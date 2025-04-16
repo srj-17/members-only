@@ -1,29 +1,50 @@
 <html>
-    <%- include("partials/head", {title: title}); %>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title><%= title %></title>
+        <%- include("partials/common_head") %>
+    </head>
     <body>
-        <%- include("partials/errors"); %>
-        <form class="sign-up-form" method="post" action="/sign-up">
-            <div class="first_name_container">
-                <label for="first_name">First name: </label>
-                <input type="text" name="first_name" placeholder="John" />
+        <header>
+            <div class="brand">
+                <a href="/">Chitthi</a>
             </div>
-            <div class="last_name_container">
-                <label for="last_name">Last Name: </label>
-                <input type="text" name="last_name" placeholder="Doe" />
-            </div>
-            <div class="username_container">
-                <label for="username">Username: </label>
-                <input type="text" name="username" placeholder="jd57" required />
-            </div>
-            <div class="password_container">
-                <label for="password">Password: </label>
-                <input type="password" name="password" required placeholder="Enter password" />
-            </div>
-            <div class="confirm_password_container">
-                <label for="confirm_password">Confirm Password: </label>
-                <input type="password" name="confirm_password" required placeholder="Re-enter password" />
-            </div>
-            <button type="submit">Sign Up</button>
-        </form>
+            <nav>
+                <ul class="nav_links">
+                    <li>
+                        <a href="/">Back to Home</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+
+            <%- include("partials/errors"); %>
+            <form class="sign-up-form" method="post" action="/sign-up">
+                <div class="first_name_container">
+                    <label for="first_name">First name: </label>
+                    <input type="text" name="first_name" placeholder="John" />
+                </div>
+                <div class="last_name_container">
+                    <label for="last_name">Last Name: </label>
+                    <input type="text" name="last_name" placeholder="Doe" />
+                </div>
+                <div class="username_container">
+                    <label for="username">Username: </label>
+                    <input type="text" name="username" placeholder="jd57" required />
+                </div>
+                <div class="password_container">
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" required placeholder="Enter password" />
+                </div>
+                <div class="confirm_password_container">
+                    <label for="confirm_password">Confirm Password: </label>
+                    <input type="password" name="confirm_password" required placeholder="Re-enter password" />
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </main>
     </body>
 </html>
