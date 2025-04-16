@@ -1,7 +1,10 @@
 const { updateMembershipStatus } = require("../db/queries");
 
 function getSpecialClubForm(req, res) {
-  res.render("special_club_form", { title: "Special Club Form" });
+  res.render("special_club_form", {
+    title: "Special Club Form",
+    specialPassword: process.env.SPECIAL_CLUB_PASSWORD || "theonepieceisreal",
+  });
 }
 
 function postSpecialClubForm(req, res) {
@@ -16,6 +19,7 @@ function postSpecialClubForm(req, res) {
   res.render("special_club_form", {
     title: "Special Club Form",
     errors: [{ msg: "Wrong password!" }],
+    specialPassword: process.env.SPECIAL_CLUB_PASSWORD || "theonepieceisreal",
   });
 }
 
