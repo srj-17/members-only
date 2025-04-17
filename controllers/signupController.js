@@ -1,5 +1,5 @@
 const { body, validationResult } = require("express-validator");
-const { getUserByName, addUser } = require("../db/queries");
+const { users } = require("../db/queries");
 const bcrypt = require("bcryptjs");
 
 const alphaError = `must only contain letters.`;
@@ -27,7 +27,7 @@ const validateUser = [
     .isLength({ min: 1, max: 20 })
     .withMessage(`Username ${lengthError}`)
     .custom(async (value) => {
-      const user = await getUserByName(value);
+      const user = await users.getUserByName(value);
 
       // if user exists, don't create the user again
       if (user) {
@@ -76,7 +76,7 @@ const postSignup = [
       // TODO: implement secret password to non-members
       const membership_status = "common";
 
-      await addUser(
+      await users.addUser(
         first_name,
         last_name,
         username,

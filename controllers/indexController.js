@@ -1,4 +1,4 @@
-const { getMessages, getUsers } = require("../db/queries");
+const { messages } = require("../db/queries");
 
 async function getIndex(req, res) {
   const authenticated = req.isAuthenticated();
@@ -7,13 +7,13 @@ async function getIndex(req, res) {
   if (authenticated) {
     specialMember = req.user.membership_status === "special";
   }
-  const messages = await getMessages();
+  const messageList = await messages.getMessages();
 
   res.render("index", {
     title: "Home",
     authenticated: authenticated,
     specialMember: specialMember,
-    messages: messages,
+    messages: messageList,
     admin: admin,
   });
 }

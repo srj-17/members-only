@@ -1,4 +1,4 @@
-const { updateMembershipStatus } = require("../db/queries");
+const { users } = require("../db/queries");
 
 function getSpecialClubForm(req, res) {
   res.render("special_club_form", {
@@ -7,12 +7,12 @@ function getSpecialClubForm(req, res) {
   });
 }
 
-function postSpecialClubForm(req, res) {
+async function postSpecialClubForm(req, res) {
   const { secret_password } = req.body;
   const { id: userId } = req.user;
   if (secret_password === process.env.SPECIAL_CLUB_PASSWORD) {
     // make member special
-    updateMembershipStatus(userId, "special");
+    await users.updateMembershipStatus(userId, "special");
     return res.redirect("/");
   }
 
